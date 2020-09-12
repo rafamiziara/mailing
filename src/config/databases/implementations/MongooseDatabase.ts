@@ -4,11 +4,9 @@ import { IDatabase } from '../IDatabase';
 import { DatabaseConnectionError } from '../../../errors/DatabaseConnectionError';
 
 export class Mongoose implements IDatabase {
-  async connect(dbName: string) {
+  async connect() {
     try {
-      const URL = `${secrets.mongoURI}/${dbName}`;
-
-      await mongoose.connect(URL, {
+      await mongoose.connect(secrets.mongoURI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true,

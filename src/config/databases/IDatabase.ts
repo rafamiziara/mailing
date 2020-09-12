@@ -1,4 +1,4 @@
 export interface IDatabase {
-  connect(dbName: string): void;
+  connect(): void;
   disconnect(): void;
 }
