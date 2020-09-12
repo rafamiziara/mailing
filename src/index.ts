@@ -8,5 +8,5 @@ const mongoose = new Mongoose();
 mongoose.connect('mailing');
 
 app.listen(secrets.port, () => {
-  console.log(`Listening on port ${secrets.port}!`);
+  console.log(`Listening on port ${secrets.port}!!`);
 });
