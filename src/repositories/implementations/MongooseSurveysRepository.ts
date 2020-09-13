@@ -62,7 +62,7 @@ class MongooseSurveysRepository implements ISurveysRepository {
   }
 
   async getSurveysByUserId(userId: string): Promise<SurveyDoc[]> {
-    const surveys = await Survey.find({ _user: userId });
+    const surveys = await Survey.find({ _user: userId }).select({ recipients: false });
     return surveys;
   }
 
