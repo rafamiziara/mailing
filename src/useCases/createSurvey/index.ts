@@ -40,7 +40,7 @@ class CreateSurveyController {
       try {
         await mailer.send();
         await survey.save();
-        mongooseUsersRepository.removeCredits(user.id, 1);
+        await mongooseUsersRepository.removeCredits(user.id, 1);
         const userDoc = await mongooseUsersRepository.findById(user.id);
         return res.send(userDoc);
       } catch (err) {
