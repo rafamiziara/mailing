@@ -35,7 +35,10 @@ router.get('/api/surveys/:surveyId/:choice', (req, res) => {
   res.send('Thanks for voting!');
 });
 
-router.get('/api/surveys', requireLogin, listSurveysController.handle);
+router.get('/api/surveys', requireLogin, (req, res) => {
+  console.log(req.user);
+  return listSurveysController.handle(req, res);
+});
 
 router.post('/api/surveys/webhooks', getFeedbackController.handle);
 
