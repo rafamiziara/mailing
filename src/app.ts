@@ -1,19 +1,24 @@
 import express from 'express';
+import 'express-async-errors';
 import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
 import passport from 'passport';
-// import path from 'path';
 import cors from 'cors';
 
 import './providers/passport';
-
 import { secrets } from '@config/secrets';
 
+import { NotFoundError } from './errors/NotFoundError';
 import { router } from './routes';
 
 const app = express();
+
+app.set('trust proxy', true);
 app.use(json());
-app.use(cors());
+app.use(cors({
+  origin: secrets.redirectDomain,
+  credentials: true,
+}));
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -27,16 +32,8 @@ app.use(passport.session());
 
 app.use(router);
 
-// if (process.env.NODE_ENV === 'production') {
-//   // Express will serve up production assests
-//   // like our main.js, or main.css file
-//   app.use(express.static('client/build'));
-
-//   // Express will serve up the index.html file
-//   // if it doesn't recognize the route
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.resolve('client', 'build', 'index.html'));
-//   });
-// }
+app.all('*', async () => {
+  throw new NotFoundError();
+});
 
 export { app };
