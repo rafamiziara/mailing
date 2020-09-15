@@ -17,7 +17,6 @@ router.get('/auth/google', passport.authenticate('google', {
 }));
 
 router.get('/auth/google/callback', passport.authenticate('google'), (req, res) => {
-  res.set('user', req.user.toString());
   res.redirect(`${secrets.redirectDomain}/surveys`);
 });
 
@@ -27,7 +26,6 @@ router.get('/api/logout', (req, res) => {
 });
 
 router.get('/api/current_user', (req, res) => {
-  console.log('Current User', req.user);
   res.send(req.user);
 });
 
