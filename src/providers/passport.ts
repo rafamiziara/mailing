@@ -19,7 +19,7 @@ passport.use(new GoogleStrategy.Strategy(
   {
     clientID: secrets.googleClientID,
     clientSecret: secrets.googleClientSecret,
-    callbackURL: '/auth/google/callback',
+    callbackURL: secrets.googleCallbackURL,
     proxy: true,
   },
   async (accessToken, refreshToken, profile, done) => {
