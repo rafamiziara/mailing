@@ -26,6 +26,7 @@ router.get('/api/logout', (req, res) => {
 });
 
 router.get('/api/current_user', (req, res) => {
+  console.log('Current User', req.user);
   res.send(req.user);
 });
 
@@ -36,7 +37,7 @@ router.get('/api/surveys/:surveyId/:choice', (req, res) => {
 });
 
 router.get('/api/surveys', requireLogin, (req, res) => {
-  console.log(req.user);
+  console.log('Api Surveys', req.user);
   return listSurveysController.handle(req, res);
 });
 
