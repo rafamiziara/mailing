@@ -1,6 +1,7 @@
 import express from 'express';
 import passport from 'passport';
 
+import { secrets } from '@config/secrets';
 import { requireCredits } from './middlewares/requireCredits';
 import { requireLogin } from './middlewares/requireLogin';
 
@@ -16,12 +17,12 @@ router.get('/auth/google', passport.authenticate('google', {
 }));
 
 router.get('/auth/google/callback', passport.authenticate('google'), (req, res) => {
-  res.redirect('/surveys');
+  res.redirect(`${secrets.redirectDomain}/surveys`);
 });
 
 router.get('/api/logout', (req, res) => {
   req.logout();
-  res.redirect('/');
+  res.redirect(`${secrets.redirectDomain}/`);
 });
 
 router.get('/api/current_user', (req, res) => {
