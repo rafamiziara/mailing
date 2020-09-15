@@ -17,6 +17,7 @@ router.get('/auth/google', passport.authenticate('google', {
 }));
 
 router.get('/auth/google/callback', passport.authenticate('google'), (req, res) => {
+  res.set('user', req.user.toString());
   res.redirect(`${secrets.redirectDomain}/surveys`);
 });
 
