@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { NotAuthorizedError } from '../errors/NotAuthorizedError';
 
 export const requireLogin = (req: Request, res: Response, next: NextFunction) => {
-  if (!req.user) {
+  if (!req.currentUser) {
     throw new NotAuthorizedError();
   }
 

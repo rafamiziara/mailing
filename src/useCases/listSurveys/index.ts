@@ -6,7 +6,7 @@ import { mongooseSurveysRepository } from '../../repositories/implementations/Mo
 class ListSurveysController {
   async handle(req: Request, res: Response): Promise<Response> {
     try {
-      const user = req.user as User;
+      const user = req.currentUser as User;
 
       const surveys = await mongooseSurveysRepository.getSurveysByUserId(user.id);
 

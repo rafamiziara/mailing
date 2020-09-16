@@ -21,7 +21,7 @@ class CreateChargeController {
         source: req.body.id,
       });
 
-      const user = req.user as User;
+      const user = req.currentUser as User;
       const newUser = await mongooseUsersRepository.addCredits(user.id, 5);
 
       return res.status(201).send(newUser);

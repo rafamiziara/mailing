@@ -22,7 +22,7 @@ class CreateSurveyController {
         title, subject, body, recipients,
       } = req.body as ISurveyDTO;
 
-      const user = req.user as User;
+      const user = req.currentUser as User;
 
       const surveyEntity = new Survey({
         title,
