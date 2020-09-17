@@ -22,7 +22,8 @@ router.get('/auth/google/callback', passport.authenticate('google'), (req, res) 
   const { credits, googleId, id } = req.user as User;
   const userJwt = jwt.sign({ credits, googleId, id }, secrets.jwtKey);
 
-  res.cookie('jwt', userJwt).redirect(`${secrets.redirectDomain}/surveys`);
+  res.cookie('jwt', userJwt);
+  res.redirect(`${secrets.redirectDomain}/surveys`);
 });
 
 router.get('/api/logout', (req, res) => {
