@@ -13,13 +13,12 @@ declare global {
 }
 
 export const currentUser = (req: Request, res: Response, next: NextFunction) => {
-  console.log(req.headers);
-  if (!req.cookies?.jwt) {
+  if (!req.cookies?.accessToken) {
     return next();
   }
 
   try {
-    const payload = jwt.verify(req.cookies.jwt, secrets.jwtKey) as User;
+    const payload = jwt.verify(req.cookies.accessToken, secrets.jwtKey) as User;
     req.currentUser = payload;
   } catch (err) {
     req.currentUser = null;

@@ -20,14 +20,14 @@ router.get('/auth/google', passport.authenticate('google', {
 
 router.get('/auth/google/callback', passport.authenticate('google'), (req, res) => {
   const { credits, googleId, id } = req.user as User;
-  const userJwt = jwt.sign({ credits, googleId, id }, secrets.jwtKey);
+  const accessToken = jwt.sign({ credits, googleId, id }, secrets.jwtKey);
 
-  res.cookie('jwt', userJwt);
+  res.cookie('accessToken', accessToken);
   res.redirect(`${secrets.redirectDomain}/surveys`);
 });
 
 router.get('/api/logout', (req, res) => {
-  res.clearCookie('jwt');
+  res.clearCookie('accessToken');
   res.redirect(`${secrets.redirectDomain}/`);
 });
 
