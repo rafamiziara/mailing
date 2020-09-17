@@ -7,10 +7,12 @@ import { User } from '@entities/User';
 import { requireCredits } from './middlewares/requireCredits';
 import { requireLogin } from './middlewares/requireLogin';
 
-import { createChargeController } from './useCases/createCharge';
+import { mongooseUsersRepository } from './repositories/implementations/MongooseUsersRepository';
+
 import { createSurveyController } from './useCases/createSurvey';
 import { listSurveysController } from './useCases/listSurveys';
 import { getFeedbackController } from './useCases/getFeedback';
+import { createChargeController } from './useCases/createCharge';
 
 const router = express.Router();
 
@@ -19,8 +21,8 @@ router.get('/auth/google', passport.authenticate('google', {
 }));
 
 router.get('/auth/google/callback', passport.authenticate('google'), (req, res) => {
-  const { credits, googleId, id } = req.user as User;
-  const accessToken = jwt.sign({ credits, googleId, id }, secrets.jwtKey);
+  const { id } = req.user as User;
+  const accessToken = jwt.sign({ id }, secrets.jwtKey);
 
   res.cookie('accessToken', accessToken);
   res.redirect(`${secrets.redirectDomain}/surveys`);
@@ -36,6 +38,12 @@ router.get('/api/current_user', (req, res) => {
 });
 
 router.post('/api/stripe', requireLogin, createChargeController.handle);
+
+router.get('/api/stripe/success', requireLogin, async (req, res) => {
+  const user = req.currentUser as User;
+  await mongooseUsersRepository.addCredits(user.id, 5);
+  res.redirect(`${secrets.redirectDomain}/surveys`);
+});
 
 router.get('/api/surveys/:surveyId/:choice', (req, res) => {
   res.send('Thanks for voting!');
