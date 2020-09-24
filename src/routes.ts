@@ -13,6 +13,7 @@ import { createSurveyController } from './useCases/createSurvey';
 import { listSurveysController } from './useCases/listSurveys';
 import { getFeedbackController } from './useCases/getFeedback';
 import { createChargeController } from './useCases/createCharge';
+import { deleteSurveyController } from './useCases/deleteSurvey';
 
 const router = express.Router();
 
@@ -46,10 +47,12 @@ router.get('/api/stripe/success', requireLogin, async (req, res) => {
 });
 
 router.get('/api/surveys/:surveyId/:choice', (req, res) => {
-  res.send('Thanks for voting!');
+  res.redirect('/thanks');
 });
 
 router.get('/api/surveys', requireLogin, listSurveysController.handle);
+
+router.delete('/api/surveys/:surveyId', requireLogin, deleteSurveyController.handle);
 
 router.post('/api/surveys/webhooks', getFeedbackController.handle);
 

@@ -12,7 +12,13 @@ export const submitSurvey = (values, history) => async dispatch => {
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
+export const deleteSurvey = (surveyId) => async dispatch => {
+  const res = await axios.delete('/api/surveys/' + surveyId);
+  dispatch({ type: FETCH_SURVEYS, payload: res.data });
+}
+
 export const fetchSurveys = () => async dispatch => {
   const res = await axios.get('/api/surveys');
+  console.log(res.data);
   dispatch({ type: FETCH_SURVEYS, payload: res.data });
 }

@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 import formFields from './formFields';
 import { withRouter } from 'react-router-dom';
 import * as actions from '../../actions';
+import './SurveyFormReview.css';
 
 const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
   const reviewFields = _.map(formFields, ({ name, label }) => {
     return (
       <div key={name}>
-        <label>{label}</label>
-        <div>
+        <label className="form-label-r">{label}</label>
+        <div id="form-input-r">
           {formValues[name]}
         </div>
       </div>
@@ -19,15 +20,12 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
 
   return (
     <div>
-      <h5>Please confirm your entries</h5>
-      {reviewFields}
-      <button className="yellow darken-3 white-text btn-flat" onClick={onCancel}>
-        Back
-      </button>
-      <button className="green white-text btn-flat right" onClick={() => submitSurvey(formValues, history)}>
-        Send Survey
-        <i className="material-icons right">email</i>
-      </button>
+      <div className="form-box-r">
+        <div className="confirm-title">Please confirm your entries</div>
+        {reviewFields}
+      </div>
+      <img onClick={onCancel} className="back" src="/left-arrow-yellow.svg" />
+      <img onClick={() => submitSurvey(formValues, history)} className="next" src="/right-arrow.svg" />
     </div>
   );
 }

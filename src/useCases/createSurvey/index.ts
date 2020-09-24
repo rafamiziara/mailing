@@ -11,7 +11,8 @@ import { surveyTemplate } from '../../providers/emailTemplates/surveyTemplate';
 interface ISurveyDTO {
   title: string,
   subject: string,
-  body: string,
+  from: string,
+  question: string,
   recipients: string,
 }
 
@@ -19,7 +20,7 @@ class CreateSurveyController {
   async handle(req: Request, res: Response): Promise<Response> {
     try {
       const {
-        title, subject, body, recipients,
+        title, subject, from, question, recipients,
       } = req.body as ISurveyDTO;
 
       const user = req.currentUser as User;
@@ -27,7 +28,9 @@ class CreateSurveyController {
       const surveyEntity = new Survey({
         title,
         subject,
-        body,
+        question,
+        from,
+        totalRecipients: recipients.split(',').map((email) => ({ email: email.trim() })).length,
         recipients: recipients.split(',').map((email) => ({ email: email.trim() })),
         _user: user.id,
         dateSent: Date.now(),

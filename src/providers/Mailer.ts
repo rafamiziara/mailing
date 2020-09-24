@@ -11,7 +11,7 @@ class Mailer {
   public msg;
 
   constructor(survey: Survey, htmlContent) {
-    const { subject, recipients } = survey;
+    const { from, subject, recipients } = survey;
 
     sgMail.setApiKey(secrets.sendGridKey);
 
@@ -26,7 +26,7 @@ class Mailer {
 
     this.msg = {
       to: this.recipients,
-      from: 'rafaelmiziara@hotmail.com',
+      from,
       subject,
       html: htmlContent,
 

@@ -6,11 +6,15 @@ export class Survey {
 
   public title: string;
 
-  public body: string;
+  public question: string;
 
   public subject: string;
 
+  public from: string;
+
   public recipients: Recipient[];
+
+  public totalRecipients: number;
 
   public yes?: number = 0;
 

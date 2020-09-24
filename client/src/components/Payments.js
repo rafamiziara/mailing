@@ -18,8 +18,8 @@ class Payments extends Component {
 
   render() {
     return (
-      <button className="btn" role="link" onClick={this.handleClick}>
-        Add Credits
+      <button style={{borderRadius: '1rem', marginLeft: '1rem', display: 'flex', alignItems: 'center'}} className="btn" role="link" onClick={this.handleClick}>
+        <img style={{width: '1.6rem'}} src="/card.svg" />
       </button>
     );
   }

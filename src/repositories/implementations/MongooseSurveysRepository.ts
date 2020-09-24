@@ -6,51 +6,68 @@ interface SurveyDoc extends Document, SurveyAttrs {
   id: string;
 }
 
-const surveySchema = new Schema({
-  id: {
-    type: String,
-    required: true,
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  body: {
-    type: String,
-    required: true,
-  },
-  subject: {
-    type: String,
-    required: true,
-  },
-  recipients: [{
-    email: {
+const surveySchema = new Schema(
+  {
+    id: {
       type: String,
       required: true,
     },
-    responded: {
-      type: Boolean,
-      default: false,
+    title: {
+      type: String,
+      required: true,
     },
-  }],
-  yes: {
-    type: Number,
-    default: 0,
+    question: {
+      type: String,
+      required: true,
+    },
+    from: {
+      type: String,
+      required: true,
+    },
+    subject: {
+      type: String,
+      required: true,
+    },
+    totalRecipients: {
+      type: Number,
+      required: true,
+    },
+    recipients: [{
+      email: {
+        type: String,
+        required: true,
+      },
+      responded: {
+        type: Boolean,
+        default: false,
+      },
+    }],
+    yes: {
+      type: Number,
+      default: 0,
+    },
+    no: {
+      type: Number,
+      default: 0,
+    },
+    _user: {
+      type: String,
+      required: true,
+    },
+    dateSent: {
+      type: Number,
+      required: true,
+    },
+    lastResponded: Date,
+  }, {
+    toJSON: {
+      transform(doc, ret) {
+        delete ret._id;
+        delete ret.__v;
+      },
+    },
   },
-  no: {
-    type: Number,
-    default: 0,
-  },
-  _user: {
-    type: String,
-    required: true,
-  },
-  dateSent: {
-    type: Number,
-    required: true,
-  },
-  lastResponded: Date,
-});
+);
 
 const Survey = model<SurveyDoc>('Survey', surveySchema);
 
@@ -64,6 +81,11 @@ class MongooseSurveysRepository implements ISurveysRepository {
   async getSurveysByUserId(userId: string): Promise<SurveyDoc[]> {
     const surveys = await Survey.find({ _user: userId }).select({ recipients: false });
     return surveys;
+  }
+
+  async getSurveyById(surveyId: string): Promise<SurveyDoc> {
+    const survey = await Survey.findOne({ id: surveyId });
+    return survey;
   }
 
   async updateFeedback(
@@ -83,6 +105,10 @@ class MongooseSurveysRepository implements ISurveysRepository {
     });
 
     return survey;
+  }
+
+  async delete(surveyId: string): Promise<void> {
+    await Survey.findOneAndRemove({ id: surveyId });
   }
 }
 

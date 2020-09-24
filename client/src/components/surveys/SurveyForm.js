@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import SurveyField from './SurveyField';
 import validateEmails from '../../utils/validateEmails';
 import formFields from './formFields';
+import './SurveyForm.css';
 
 class SurveyForm extends Component {
   renderFields() {
@@ -17,17 +18,16 @@ class SurveyForm extends Component {
   
   render() {
     return (
-      <div>
-        <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
+      <div >
+        <form className="form-box" id="edit-survey" onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
           {this.renderFields()}
-          <Link to="/surveys" className="red btn-flat white-text">
-            Cancel
-          </Link>
-          <button className="teal btn-flat right white-text" type="submit">
-            Next
-            <i className="material-icons right">done</i>
-          </button>
         </form>
+        <Link to="/surveys">
+          <img className="back" src="/left-arrow.svg" />
+        </Link>
+        <button className="form-button" type="submit" form="edit-survey">
+          <img className="next" src="/right-arrow.svg" />
+        </button>
       </div>
     );
   }

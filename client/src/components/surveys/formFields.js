@@ -1,6 +1,7 @@
 export default [
-  { label: 'Survey Tilte', name: 'title'},
-  { label: 'Subject Line', name: 'subject'},
-  { label: 'Email Body', name: 'body'},
+  { label: 'Survey Title', name: 'title'},
+  { label: 'From', name: 'from'},
+  { label: 'Subject', name: 'subject'},
+  { label: 'Question', name: 'question'},
   { label: 'Recipient List', name: 'recipients'}
 ];
