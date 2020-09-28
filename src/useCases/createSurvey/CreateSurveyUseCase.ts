@@ -37,6 +37,8 @@ export class CreateSurveyUseCase {
     await this.mailProvider.sendMail(msg);
     await this.usersRepository.removeCredits(data.user.id, 1);
 
-    return survey;
+    const user = this.usersRepository.findById(data.user.id);
+
+    return user;
   }
 }

@@ -15,7 +15,7 @@ export class CreateSurveyController {
     const user = req.currentUser as User;
 
     try {
-      const survey = await this.createSurveyUseCase.execute({
+      const updatedUser = await this.createSurveyUseCase.execute({
         user,
         title,
         subject,
@@ -23,7 +23,7 @@ export class CreateSurveyController {
         recipients,
       });
 
-      return res.status(201).json(survey);
+      return res.status(201).json(updatedUser);
     } catch (err) {
       return res.status(400).json({
         message: err.message || 'Unexpected error',
