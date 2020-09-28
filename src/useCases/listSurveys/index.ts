@@ -1,4 +1,4 @@
-import { MongooseSurveysRepository } from 'src/repositories/implementations/MongooseSurveysRepository';
+import { MongooseSurveysRepository } from '@repositories/MongooseSurveysRepository';
 import { ListSurveysController } from './ListSurveysController';
 import { ListSurveysUseCase } from './ListSurveysUseCase';
 

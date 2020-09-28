@@ -1,4 +1,4 @@
-import { ISurveysRepository } from 'src/repositories/ISurveysRepository';
+import { ISurveysRepository } from '@IRepositories/ISurveysRepository';
 import { IGetFeedbackRequestDTO } from './GetFeedbackDTO';
 
 export class GetFeedbackUseCase {

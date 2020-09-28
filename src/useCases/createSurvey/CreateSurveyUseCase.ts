@@ -1,9 +1,9 @@
-import { IMailProvider } from 'src/providers/IMailProvider';
-import { ISurveysRepository } from 'src/repositories/ISurveysRepository';
-import { IUsersRepository } from 'src/repositories/IUsersRepository';
+import { IMailProvider } from '@IProviders/IMailProvider';
+import { ISurveysRepository } from '@IRepositories/ISurveysRepository';
+import { IUsersRepository } from '@IRepositories/IUsersRepository';
 import { Survey } from '@entities/Survey';
 import { secrets } from '@config/secrets';
-import { surveyTemplate } from 'src/utils/surveyTemplate';
+import { surveyTemplate } from '../../utils/surveyTemplate';
 import { ICreateSurveyRequestDTO } from './CreateSurveyDTO';
 
 export class CreateSurveyUseCase {

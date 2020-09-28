@@ -1,5 +1,5 @@
+import { User as UserEntity } from '@entities/User';
 import { IUsersRepository } from '../IUsersRepository';
-import { User as UserEntity } from '../../entities/User';
 import { User } from '../../schemas/User';
 
 export class MongooseUsersRepository implements IUsersRepository {

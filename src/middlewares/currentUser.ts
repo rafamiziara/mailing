@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 import { secrets } from '@config/secrets';
 import { User } from '@entities/User';
-import { MongooseUsersRepository } from '../repositories/implementations/MongooseUsersRepository';
+import { MongooseUsersRepository } from '@repositories/MongooseUsersRepository';
 
 const mongooseUsersRepository = new MongooseUsersRepository();
 

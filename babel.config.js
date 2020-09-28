@@ -15,6 +15,11 @@ module.exports = {
       alias: {
         '@config': './src/config',
         '@entities': './src/entities',
+        '@providers': './src/providers/implementations',
+        '@repositories': './src/repositories/implementations',
+        '@errors': './src/errors',
+        '@IProviders': './src/providers',
+        '@IRepositories': '.src/repositories',
       },
     }],
   ],

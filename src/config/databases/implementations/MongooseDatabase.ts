@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import { secrets } from '@config/secrets';
+import { DatabaseConnectionError } from '@errors/DatabaseConnectionError';
 import { IDatabase } from '../IDatabase';
-import { DatabaseConnectionError } from '../../../errors/DatabaseConnectionError';
 
 export class Mongoose implements IDatabase {
   async connect() {

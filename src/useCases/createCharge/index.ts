@@ -1,4 +1,4 @@
-import { StripePaymentsProvider } from 'src/providers/implementations/StripePaymentsProvider';
+import { StripePaymentsProvider } from '@providers/StripePaymentsProvider';
 import { CreateChargeController } from './CreateChargeController';
 import { CreateChargeUseCase } from './CreateChargeUseCase';
 

@@ -1,5 +1,5 @@
 import { Schema, model, Document } from 'mongoose';
-import { Survey as SurveyEntity } from '../entities/Survey';
+import { Survey as SurveyEntity } from '@entities/Survey';
 
 interface SurveyDoc extends Document, SurveyEntity {
   id: string;

@@ -1,4 +1,4 @@
-import { IPaymentsProvider } from 'src/providers/IPaymentsProvider';
+import { IPaymentsProvider } from '@IProviders/IPaymentsProvider';
 
 export class CreateChargeUseCase {
   constructor(

@@ -10,7 +10,12 @@
     "baseUrl": "./",
     "paths": {
       "@config/*": ["./src/config/*"],
-      "@entities/*": ["./src/entities/*"]
+      "@entities/*": ["./src/entities/*"],
+      "@providers/*":["./src/providers/implementations/*"],
+      "@repositories/*": ["./src/repositories/implementations/*"],
+      "@IProviders/*": ["./src/providers/*"],
+      "@IRepositories/*": ["./src/repositories/*"],
+      "@errors/*": ["./src/errors/*"]
     },
     "typeRoots": [
       "./node_modules/@types",

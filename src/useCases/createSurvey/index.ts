@@ -1,6 +1,6 @@
-import { MongooseSurveysRepository } from 'src/repositories/implementations/MongooseSurveysRepository';
-import { MongooseUsersRepository } from 'src/repositories/implementations/MongooseUsersRepository';
-import { SendgridMailProvider } from '../../providers/implementations/SendgridMailProvider';
+import { MongooseSurveysRepository } from '@repositories/MongooseSurveysRepository';
+import { MongooseUsersRepository } from '@repositories/MongooseUsersRepository';
+import { SendgridMailProvider } from '@providers/SendgridMailProvider';
 import { CreateSurveyController } from './CreateSurveyController';
 import { CreateSurveyUseCase } from './CreateSurveyUseCase';
 

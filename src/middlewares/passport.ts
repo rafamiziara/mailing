@@ -3,8 +3,8 @@ import GoogleStrategy from 'passport-google-oauth20';
 
 import { secrets } from '@config/secrets';
 
-import { User as UserEntity } from '../entities/User';
-import { MongooseUsersRepository } from '../repositories/implementations/MongooseUsersRepository';
+import { User as UserEntity } from '@entities/User';
+import { MongooseUsersRepository } from '@repositories/MongooseUsersRepository';
 
 const User = new MongooseUsersRepository();
 

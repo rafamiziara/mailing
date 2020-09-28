@@ -1,5 +1,5 @@
+import { Survey as SurveyEntity } from '@entities/Survey';
 import { ISurveysRepository } from '../ISurveysRepository';
-import { Survey as SurveyEntity } from '../../entities/Survey';
 import { Survey } from '../../schemas/Survey';
 
 export class MongooseSurveysRepository implements ISurveysRepository {

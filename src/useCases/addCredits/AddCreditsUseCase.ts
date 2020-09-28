@@ -1,4 +1,4 @@
-import { IUsersRepository } from 'src/repositories/IUsersRepository';
+import { IUsersRepository } from '@IRepositories/IUsersRepository';
 import { IAddCreditsRequestDTO } from './AddCreditsDTO';
 
 export class AddCreditsUseCase {

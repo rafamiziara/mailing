@@ -1,5 +1,5 @@
 import { Schema, model, Document } from 'mongoose';
-import { User as UserAttrs } from '../entities/User';
+import { User as UserAttrs } from '@entities/User';
 
 interface UserDoc extends Document, UserAttrs {
   id: string;

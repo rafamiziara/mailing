@@ -1,4 +1,4 @@
-import { Survey } from '../entities/Survey';
+import { Survey } from '@entities/Survey';
 
 export interface ISurveysRepository {
   save(survey: Survey): Promise<Survey>;
