@@ -4,7 +4,9 @@ import GoogleStrategy from 'passport-google-oauth20';
 import { secrets } from '@config/secrets';
 
 import { User as UserEntity } from '../entities/User';
-import { mongooseUsersRepository as User } from '../repositories/implementations/MongooseUsersRepository';
+import { MongooseUsersRepository } from '../repositories/implementations/MongooseUsersRepository';
+
+const User = new MongooseUsersRepository();
 
 passport.serializeUser((user: UserEntity, done) => {
   done(null, user.id);

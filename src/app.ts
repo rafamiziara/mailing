@@ -5,7 +5,7 @@ import passport from 'passport';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 
-import './providers/passport';
+import './middlewares/passport';
 
 import { currentUser } from './middlewares/currentUser';
 import { errorHandler } from './middlewares/errorHandler';

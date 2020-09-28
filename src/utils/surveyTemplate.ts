@@ -1,6 +1,6 @@
 import { secrets } from '@config/secrets';
 
-import { Survey } from '../../entities/Survey';
+import { Survey } from '@entities/Survey';
 
 export const surveyTemplate = (survey: Survey) => `
   <!DOCTYPE html

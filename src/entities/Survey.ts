@@ -10,8 +10,6 @@ export class Survey {
 
   public subject: string;
 
-  public from: string;
-
   public recipients: Recipient[];
 
   public totalRecipients: number;

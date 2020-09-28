@@ -1,89 +1,20 @@
-import { Schema, model, Document } from 'mongoose';
 import { ISurveysRepository } from '../ISurveysRepository';
-import { Survey as SurveyAttrs } from '../../entities/Survey';
+import { Survey as SurveyEntity } from '../../entities/Survey';
+import { Survey } from '../../schemas/Survey';
 
-interface SurveyDoc extends Document, SurveyAttrs {
-  id: string;
-}
-
-const surveySchema = new Schema(
-  {
-    id: {
-      type: String,
-      required: true,
-    },
-    title: {
-      type: String,
-      required: true,
-    },
-    question: {
-      type: String,
-      required: true,
-    },
-    from: {
-      type: String,
-      required: true,
-    },
-    subject: {
-      type: String,
-      required: true,
-    },
-    totalRecipients: {
-      type: Number,
-      required: true,
-    },
-    recipients: [{
-      email: {
-        type: String,
-        required: true,
-      },
-      responded: {
-        type: Boolean,
-        default: false,
-      },
-    }],
-    yes: {
-      type: Number,
-      default: 0,
-    },
-    no: {
-      type: Number,
-      default: 0,
-    },
-    _user: {
-      type: String,
-      required: true,
-    },
-    dateSent: {
-      type: Number,
-      required: true,
-    },
-    lastResponded: Date,
-  }, {
-    toJSON: {
-      transform(doc, ret) {
-        delete ret._id;
-        delete ret.__v;
-      },
-    },
-  },
-);
-
-const Survey = model<SurveyDoc>('Survey', surveySchema);
-
-class MongooseSurveysRepository implements ISurveysRepository {
-  async save(surveyAttrs: SurveyAttrs): Promise<SurveyDoc> {
+export class MongooseSurveysRepository implements ISurveysRepository {
+  async save(surveyAttrs: SurveyEntity): Promise<SurveyEntity> {
     const survey = new Survey(surveyAttrs);
     await survey.save();
     return survey;
   }
 
-  async getSurveysByUserId(userId: string): Promise<SurveyDoc[]> {
+  async getSurveysByUserId(userId: string): Promise<SurveyEntity[]> {
     const surveys = await Survey.find({ _user: userId }).select({ recipients: false });
     return surveys;
   }
 
-  async getSurveyById(surveyId: string): Promise<SurveyDoc> {
+  async getSurveyById(surveyId: string): Promise<SurveyEntity> {
     const survey = await Survey.findOne({ id: surveyId });
     return survey;
   }
@@ -92,7 +23,7 @@ class MongooseSurveysRepository implements ISurveysRepository {
     surveyId: string,
     recipientMail: string,
     choice: string,
-  ): Promise<SurveyDoc> {
+  ): Promise<SurveyEntity> {
     const survey = await Survey.updateOne({
       id: surveyId,
       recipients: {
@@ -111,5 +42,3 @@ class MongooseSurveysRepository implements ISurveysRepository {
     await Survey.findOneAndRemove({ id: surveyId });
   }
 }
-
-export const mongooseSurveysRepository = new MongooseSurveysRepository();

@@ -3,7 +3,9 @@ import jwt from 'jsonwebtoken';
 
 import { secrets } from '@config/secrets';
 import { User } from '@entities/User';
-import { mongooseUsersRepository } from '../repositories/implementations/MongooseUsersRepository';
+import { MongooseUsersRepository } from '../repositories/implementations/MongooseUsersRepository';
+
+const mongooseUsersRepository = new MongooseUsersRepository();
 
 declare global {
   namespace Express {

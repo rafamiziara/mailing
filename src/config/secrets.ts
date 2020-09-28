@@ -9,4 +9,5 @@ export const secrets = {
   sendGridKey: process.env.SEND_GRID_KEY,
   redirectDomain: process.env.REDIRECT_DOMAIN,
   jwtKey: process.env.JWT_KEY,
+  emailFrom: process.env.EMAIL_FROM,
 };

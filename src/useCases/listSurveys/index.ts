@@ -1,24 +1,15 @@
-import { Request, Response } from 'express';
+import { MongooseSurveysRepository } from 'src/repositories/implementations/MongooseSurveysRepository';
+import { ListSurveysController } from './ListSurveysController';
+import { ListSurveysUseCase } from './ListSurveysUseCase';
 
-import { User } from '../../entities/User';
-import { mongooseSurveysRepository } from '../../repositories/implementations/MongooseSurveysRepository';
+const mongooseSurveysRepository = new MongooseSurveysRepository();
 
-class ListSurveysController {
-  async handle(req: Request, res: Response): Promise<Response> {
-    try {
-      const user = req.currentUser as User;
+const listSurveysUseCase = new ListSurveysUseCase(
+  mongooseSurveysRepository,
+);
 
-      const surveys = await mongooseSurveysRepository.getSurveysByUserId(user.id);
-
-      return res.status(201).send(surveys);
-    } catch (err) {
-      return res.status(400).json({
-        message: err.message || 'Unexpected error.',
-      });
-    }
-  }
-}
-
-const listSurveysController = new ListSurveysController();
+const listSurveysController = new ListSurveysController(
+  listSurveysUseCase,
+);
 
 export { listSurveysController };
