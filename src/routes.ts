@@ -7,13 +7,12 @@ import { User } from '@entities/User';
 import { requireCredits } from './middlewares/requireCredits';
 import { requireLogin } from './middlewares/requireLogin';
 
-import { mongooseUsersRepository } from './repositories/implementations/MongooseUsersRepository';
-
 import { createSurveyController } from './useCases/createSurvey';
 import { listSurveysController } from './useCases/listSurveys';
 import { getFeedbackController } from './useCases/getFeedback';
 import { createChargeController } from './useCases/createCharge';
 import { deleteSurveyController } from './useCases/deleteSurvey';
+import { addCreditsController } from './useCases/addCredits';
 
 const router = express.Router();
 
@@ -40,11 +39,7 @@ router.get('/api/current_user', (req, res) => {
 
 router.post('/api/stripe', requireLogin, createChargeController.handle);
 
-router.get('/api/stripe/success', requireLogin, async (req, res) => {
-  const user = req.currentUser as User;
-  await mongooseUsersRepository.addCredits(user.id, 5);
-  res.redirect(`${secrets.redirectDomain}/surveys`);
-});
+router.get('/api/stripe/success', requireLogin, addCreditsController.handle);
 
 router.get('/api/surveys/:surveyId/:choice', (req, res) => {
   res.redirect('/thanks');
