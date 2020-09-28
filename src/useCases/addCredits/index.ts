@@ -1,4 +1,4 @@
-import { MongooseUsersRepository } from 'src/repositories/implementations/MongooseUsersRepository';
+import { MongooseUsersRepository } from '@repositories/MongooseUsersRepository';
 import { AddCreditsController } from './AddCreditsController';
 import { AddCreditsUseCase } from './AddCreditsUseCase';
 

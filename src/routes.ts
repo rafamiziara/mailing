@@ -37,20 +37,20 @@ router.get('/api/current_user', (req, res) => {
   res.send(req.currentUser);
 });
 
-router.post('/api/stripe', requireLogin, createChargeController.handle);
+router.post('/api/stripe', requireLogin, (req, res) => createChargeController.handle(req, res));
 
-router.get('/api/stripe/success', requireLogin, addCreditsController.handle);
+router.get('/api/stripe/success', requireLogin, (req, res) => addCreditsController.handle(req, res));
 
 router.get('/api/surveys/:surveyId/:choice', (req, res) => {
   res.redirect('/thanks');
 });
 
-router.get('/api/surveys', requireLogin, listSurveysController.handle);
+router.get('/api/surveys', requireLogin, (req, res) => listSurveysController.handle(req, res));
 
-router.delete('/api/surveys/:surveyId', requireLogin, deleteSurveyController.handle);
+router.delete('/api/surveys/:surveyId', requireLogin, (req, res) => deleteSurveyController.handle(req, res));
 
-router.post('/api/surveys/webhooks', getFeedbackController.handle);
+router.post('/api/surveys/webhooks', (req, res) => getFeedbackController.handle(req, res));
 
-router.post('/api/surveys', requireLogin, requireCredits, createSurveyController.handle);
+router.post('/api/surveys', requireLogin, requireCredits, (req, res) => createSurveyController.handle(req, res));
 
 export { router };
