@@ -26,7 +26,8 @@ export class GetFeedbackController {
         .uniqBy(['email', 'surveyId'])
         .each(({ surveyId, email, choice }) => {
           this.getFeedbackUseCase.execute({ surveyId, email, choice });
-        });
+        })
+        .value();
 
       return res.send({});
     } catch (err) {

@@ -32,11 +32,11 @@ class SurveyList extends Component {
             </p>
             <p style={{marginTop: '1rem'}} className="card-line">
               <img className="survey-icon" src="/find.svg" />
-              Responded: {survey.yes + survey.no} · {((survey.yes + survey.no)/survey.totalRecipients*100)}%
+              Responded: {survey.yes + survey.no} · {Math.round((survey.yes + survey.no)/survey.totalRecipients*100)}%
             </p>
             <p style={{marginTop: '1rem'}} className="card-line">
               <img className="survey-icon" src="/calendar.svg" />
-              Last Responded: {survey.lastResponded || 'Not Yet'}
+              Last Responded: {survey.lastResponded ? new Date(survey.lastResponded).toLocaleDateString() : 'Not Yet'}
             </p>
           </div>
           <div style={{borderRadius: '0 0 0 10px', display: 'flex', justifyContent: 'space-around', backgroundColor: 'rgba(38, 166, 154, 0.3)', padding: '16px 0', width: '50%'}} className="card-action left">
