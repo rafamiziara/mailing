@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Footer = styled.div`
+export const Container = styled.div`
   .made-by {
     font-family: 'Grandstander', cursive;
     display: flex;

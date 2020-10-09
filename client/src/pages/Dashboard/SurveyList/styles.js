@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SurveyList = styled.div`
+export const Container = styled.div`
   .survey-icon {
     width: 1.5rem;
     margin: 0 1rem 0 0.5rem;

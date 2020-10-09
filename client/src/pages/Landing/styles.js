@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Landing = styled.div`
+export const Container = styled.div`
   .background {
     margin-top: 0.2rem;
     opacity: 0.4;

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Payments from '../Payments';
-import { Header } from './styles';
+import { Container } from './styles';
 
 class Header extends Component {
   renderContent() {
@@ -27,23 +27,25 @@ class Header extends Component {
 
   render() {
     return (
-      <nav>
-        <Header className="nav-wrapper nav-bar">
-          <Link 
-            style={{display: 'flex'}}
-            to={this.props.auth ? '/surveys' : '/' } 
-            className="left brand-logo"
-          >
-            <img style={{width: '3rem', marginRight: '1rem'}} src="/email.svg" />
-            mailing
-          </Link>
-          <p className="warning">Alert!</p>
-          <p className="message">This is a test project. Do not use it for commercial purposes!</p>
-          <ul className="right">
-            {this.renderContent()}
-          </ul>
-        </Header>
-      </nav>
+      <Container>
+        <nav>
+          <div className="nav-wrapper nav-bar">
+            <Link 
+              style={{display: 'flex'}}
+              to={this.props.auth ? '/surveys' : '/' } 
+              className="left brand-logo"
+            >
+              <img style={{width: '3rem', marginRight: '1rem'}} src="/email.svg" />
+              mailing
+            </Link>
+            <p className="warning">Alert!</p>
+            <p className="message">This is a test project. Do not use it for commercial purposes!</p>
+            <ul className="right">
+              {this.renderContent()}
+            </ul>
+          </div>
+        </nav>
+      </Container>
     )
   }
 };

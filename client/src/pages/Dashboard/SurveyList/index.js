@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import SurveyOptions from './SurveyOptions'
 import { fetchSurveys } from '../../../actions';
-import { SurveyList } from './styles';
+import { Container } from './styles';
 
 class SurveyList extends Component {
   componentDidMount() {
@@ -63,9 +63,9 @@ class SurveyList extends Component {
 
   render() {
     return (
-      <SurveyList style={{display: 'flex', flexWrap: 'wrap', margin: '2vw', paddingBottom: '2vw'}}>
+      <Container style={{display: 'flex', flexWrap: 'wrap', margin: '2vw', paddingBottom: '2vw'}}>
         {this.renderSurveys()}        
-      </SurveyList>
+      </Container>
     )
   }
 

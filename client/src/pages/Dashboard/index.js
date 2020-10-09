@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { fetchSurveys } from '../../actions';
 import SurveyList from './SurveyList';
 import SimpleModal from '../../components/Modal';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -38,10 +40,12 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
+        <Header />
         <SurveyList />
         <div className="fixed-action-btn">
           {this.renderButton()}
         </div>
+        <Footer />
       </div>
     );
   }

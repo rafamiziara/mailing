@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Header = styled.div`
+export const Container = styled.div`
   .nav-bar {
     background-color: #1d3557;
     padding: 0 1.5rem;

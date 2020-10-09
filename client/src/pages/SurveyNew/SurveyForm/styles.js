@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SurveyForm = styled.div`
+export const Form = styled.div`
   .form-box {
     margin: 3%;
     border-radius: 0.6rem;
