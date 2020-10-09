@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
-import { fetchSurveys } from '../../actions';
-import SurveyList from './SurveyList';
-import SimpleModal from '../../components/Modal';
+import { fetchSurveys } from '../actions';
+import SurveyList from './surveys/SurveyList';
+import SimpleModal from './Modal';
+import './Landing.css'
 
 class Dashboard extends Component {
   componentDidMount() {

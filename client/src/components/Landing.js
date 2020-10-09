@@ -1,12 +1,9 @@
 import React from 'react';
-
-import { Landing } from './styles';
-import { Header } from '../../components/Header';
+import './Landing.css';
 
 const Landing = () => {
   return (
-    <Landing className="landing" style={{ textAlign: 'center' }}>
-      <Header />
+    <div className="landing" style={{ textAlign: 'center' }}>
       <img className="background" src="/background.svg" />
       <img className="avatar av1" src="/avatar1.svg" />
       <img className="avatar av2" src="/avatar2.svg" />
@@ -28,7 +25,7 @@ const Landing = () => {
           <h3>Collect feedback</h3>
         </div>
       </div>
-    </Landing>
+    </div>
   );
 };
 

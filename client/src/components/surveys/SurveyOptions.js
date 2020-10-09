@@ -2,8 +2,7 @@ import React from 'react';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { connect } from 'react-redux';
-
-import * as actions from '../../../../actions';
+import * as actions from '../../actions';
 
 const SurveyOptions = ({ surveyId, deleteSurvey }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
