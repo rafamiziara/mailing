@@ -21,7 +21,6 @@ class Header extends Component {
           </li>,
           <li key="2"><a href="/api/logout">Logout</a></li>
         ];
-
     }
   }
 
