@@ -1,0 +1,1 @@
+{/* <p className="made-by">made with <img className="love" src="/love.svg" /> by <a className="link" href="https://github.com/rafamiziara">rm30</a></p> */}

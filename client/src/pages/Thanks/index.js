@@ -1,9 +1,10 @@
 import React from 'react';
-import './Landing.css';
+
+import { Landing } from '../Landing/styles';
 
 const Thanks = () => {
   return (
-    <div className="landing" style={{ textAlign: 'center' }}>
+    <Landing className="landing" style={{ textAlign: 'center' }}>
       <img className="background" src="/background.svg" />
       <img className="avatar av1" src="/avatar1.svg" />
       <img className="avatar av2" src="/avatar2.svg" />
@@ -17,7 +18,7 @@ const Thanks = () => {
           <h3>Thanks for voting!</h3>
         </div>
       </div>
-    </div>
+    </Landing>
   );
 };
 

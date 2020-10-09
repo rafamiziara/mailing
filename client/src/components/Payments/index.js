@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { loadStripe } from '@stripe/stripe-js';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+
+import * as actions from '../../actions';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
