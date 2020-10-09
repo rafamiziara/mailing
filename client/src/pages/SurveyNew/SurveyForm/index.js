@@ -2,10 +2,11 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
-import SurveyField from './SurveyField';
-import validateEmails from '../../utils/validateEmails';
-import formFields from './formFields';
-import './SurveyForm.css';
+
+import SurveyField from '../SurveyField';
+import validateEmails from '../../../utils/validateEmails';
+import formFields from '../SurveyField/formFields';
+import { SurveyForm } from './styles';
 
 class SurveyForm extends Component {
   renderFields() {
@@ -18,7 +19,7 @@ class SurveyForm extends Component {
   
   render() {
     return (
-      <div >
+      <SurveyForm>
         <form className="form-box" id="edit-survey" onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
           {this.renderFields()}
         </form>
@@ -28,7 +29,7 @@ class SurveyForm extends Component {
         <button className="form-button" type="submit" form="edit-survey">
           <img className="next" src="/right-arrow.svg" />
         </button>
-      </div>
+      </SurveyForm>
     );
   }
 }

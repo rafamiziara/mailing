@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import SurveyOptions from './SurveyOptions'
-import { fetchSurveys } from '../../actions';
-import './SurveyList.css'
+import { fetchSurveys } from '../../../actions';
+import { SurveyList } from './styles';
 
 class SurveyList extends Component {
   componentDidMount() {
@@ -62,9 +63,9 @@ class SurveyList extends Component {
 
   render() {
     return (
-      <div style={{display: 'flex', flexWrap: 'wrap', margin: '2vw', paddingBottom: '2vw'}}>
+      <SurveyList style={{display: 'flex', flexWrap: 'wrap', margin: '2vw', paddingBottom: '2vw'}}>
         {this.renderSurveys()}        
-      </div>
+      </SurveyList>
     )
   }
 

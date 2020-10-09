@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Payments from './Payments';
-import './Header.css'
+
+import Payments from '../Payments';
+import { Header } from './styles';
 
 class Header extends Component {
   renderContent() {
@@ -27,7 +28,7 @@ class Header extends Component {
   render() {
     return (
       <nav>
-        <div className="nav-wrapper nav-bar">
+        <Header className="nav-wrapper nav-bar">
           <Link 
             style={{display: 'flex'}}
             to={this.props.auth ? '/surveys' : '/' } 
@@ -41,7 +42,7 @@ class Header extends Component {
           <ul className="right">
             {this.renderContent()}
           </ul>
-        </div>
+        </Header>
       </nav>
     )
   }
