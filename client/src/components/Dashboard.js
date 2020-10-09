@@ -22,7 +22,7 @@ class Dashboard extends Component {
       );
     }
 
-    if(this.props.surveys.length > 2) {
+    if(this.props.surveys.length > 5) {
       return (
         <SimpleModal text="As a test project, you have a limit of 5 surveys. Delete some survey to continue" />
       );
