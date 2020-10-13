@@ -4,6 +4,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { connect } from 'react-redux';
 
 import * as actions from '../../../../actions';
+import { 
+  MenuWrapper, 
+  MenuIcon, 
+  MenuContent, 
+  OptionsWrapper, 
+  OptionIcon 
+} from './styles';
 
 const SurveyOptions = ({ surveyId, deleteSurvey }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -17,8 +24,8 @@ const SurveyOptions = ({ surveyId, deleteSurvey }) => {
   };
 
   return (
-    <div style={{height: '0'}}>
-      <img onClick={handleClick} className="delete-btn" style={{width: '2rem', cursor: 'pointer'}} src="/options.svg" />
+    <MenuWrapper>
+      <MenuIcon onClick={handleClick} src="/options.svg" />
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}
@@ -26,26 +33,16 @@ const SurveyOptions = ({ surveyId, deleteSurvey }) => {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem style={{fontFamily: 'Grandstander', color: '#1d3557'}} onClick={handleClose}>
-          <div onClick={() => deleteSurvey(surveyId)} style={{display: 'flex', alignItems: 'center'}}>
-            <img style={{width: '1rem', margin: '0 0.6rem 0.3rem 0'}} src="/remove.svg" />
-            Delete
-          </div>
-        </MenuItem>
-        <MenuItem style={{fontFamily: 'Grandstander', color: '#1d3557'}} onClick={handleClose}>
-          <div style={{display: 'flex', alignItems: 'center'}}>
-            <img style={{width: '1.2rem', margin: '0 0.4rem 0.3rem 0'}} src="/survey.svg" />
-            Edit
-          </div>
-        </MenuItem>
-        <MenuItem style={{fontFamily: 'Grandstander', color: '#1d3557'}} onClick={handleClose}>
-          <div style={{display: 'flex', alignItems: 'center'}}>
-            <img style={{width: '1rem', margin: '0 0.6rem 0.3rem 0'}} src="/send.svg" />
-            Send
-          </div>
+        <MenuItem onClick={handleClose}>
+          <OptionsWrapper>
+            <MenuContent onClick={() => deleteSurvey(surveyId)}>
+              <OptionIcon src="/remove.svg" />
+              Delete
+            </MenuContent>
+          </OptionsWrapper>
         </MenuItem>
       </Menu>
-    </div>
+    </MenuWrapper>
   );
 }
 

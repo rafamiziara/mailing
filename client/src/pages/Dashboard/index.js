@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { AddButton, AddWrapper } from './styles';
 import { fetchSurveys } from '../../actions';
 import SurveyList from './SurveyList';
 import SimpleModal from '../../components/Modal';
@@ -32,7 +33,7 @@ class Dashboard extends Component {
 
     return (
       <Link to={"/surveys/new"}>  
-        <img style={{width: '4rem', backgroundColor: 'white', padding: '0.7rem', borderRadius: '100%'}} src="/add.svg" />
+        <AddButton src="/add.svg" />
       </Link>
     );
   }
@@ -42,9 +43,9 @@ class Dashboard extends Component {
       <div>
         <Header />
         <SurveyList />
-        <div className="fixed-action-btn">
+        <AddWrapper>
           {this.renderButton()}
-        </div>
+        </AddWrapper>
         <Footer />
       </div>
     );

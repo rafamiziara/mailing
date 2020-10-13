@@ -8,7 +8,7 @@ const Thanks = () => {
   return (
     <Container>
       <Header />
-      <div className="landing" style={{ textAlign: 'center' }}>
+      <div className="landing">
         <img className="background" src="/background.svg" />
         <img className="avatar av1" src="/avatar1.svg" />
         <img className="avatar av2" src="/avatar2.svg" />

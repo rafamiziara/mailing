@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  .landing {
+    text-align: center;
+  }
+
   .background {
     margin-top: 0.2rem;
     opacity: 0.4;

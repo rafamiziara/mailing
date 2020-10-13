@@ -7,7 +7,7 @@ import Footer from '../../components/Footer';
 const Landing = () => {
   return (
     <Container>
-      <div className="landing" style={{ textAlign: 'center' }}>
+      <div className="landing">
         <Header />
         <img className="background" src="/background.svg" />
         <img className="avatar av1" src="/avatar1.svg" />
@@ -19,7 +19,7 @@ const Landing = () => {
         {/* <div className="box-background" /> */}
         <div className="description-box">
           <div className="send-mail box">
-            <img className="icon" src="/sendmail.svg" />
+            <img alt="icon" className="icon" src="/sendmail.svg" />
             {/* Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> */}
             <h3>Send mass emails</h3>
           </div>
