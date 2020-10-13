@@ -7,6 +7,7 @@ import reduxThunk from 'redux-thunk';
 
 import App from './App';
 import reducers from './reducers';
+import GlobalStyle from './theme/GlobalStyles';
 
 import axios from 'axios';
 window.axios = axios;
@@ -15,6 +16,7 @@ const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
   <Provider store={store}>
+    <GlobalStyle />
     <App />
   </Provider>,
   document.querySelector('#root')  
