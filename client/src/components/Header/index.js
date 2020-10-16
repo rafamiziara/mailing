@@ -47,7 +47,7 @@ class Header extends Component {
       <NavWrapper>
         <Link to={this.props.auth ? '/surveys' : '/' }>
           <LogoWrapper>
-            <MainLogo src="/email.svg" />
+            <MainLogo src="/send-mail.svg" />
             mailing
           </LogoWrapper>
         </Link>

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Container } from '../Landing/styles';
+import { Wrapper } from '../Landing/styles';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 const Thanks = () => {
   return (
-    <Container>
+    <Wrapper>
       <Header />
       <div className="landing">
         <img className="background" src="/background.svg" />
@@ -24,7 +24,7 @@ const Thanks = () => {
         </div>
       </div>
       <Footer />
-    </Container>
+    </Wrapper>
   );
 };
 

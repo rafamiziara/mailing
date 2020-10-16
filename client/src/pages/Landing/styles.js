@@ -1,106 +1,98 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  .landing {
-    text-align: center;
-  }
+const Avatar = styled.img`
+  width: 6rem;
+  opacity: 0.4;
+  position: absolute;
+`;
 
-  .background {
-    margin-top: 0.2rem;
-    opacity: 0.4;
-  }
+export const Avatar1 = styled(Avatar)`
+  top: 20rem;
+  left: 5rem;  
+`;
 
-  .avatar {
-    width: 6rem;
-    opacity: 0.4;
-    position: absolute;
-  }
+export const Avatar2 = styled(Avatar)`
+  bottom: 4rem;
+  left: 15rem;
+`;
 
-  .av1 {
-    top: 20rem;
-    left: 5rem;
-  }
+export const Avatar3 = styled(Avatar)`
+  top: 8rem;
+  right: 10rem;  
+`;
 
-  .av2 {
-    bottom: 4rem;
-    left: 15rem;
-  }
+export const Avatar4 = styled(Avatar)`
+  bottom: 14rem;
+  right: 5rem;  
+`;
 
-  .av3 {
-    top: 8rem;
-    right: 10rem;
-  }
+export const Avatar5 = styled(Avatar)`
+  bottom: 5rem;
+  right: 14rem;  
+`;
 
-  .av4 {
-    bottom: 14rem;
-    right: 5rem;
-  }
+export const Avatar6 = styled(Avatar)`
+  top: 8rem;
+  left: 12rem;  
+`;
 
-  .av5 {
-    bottom: 5rem;
-    right: 14rem;
-  }
+export const Wrapper = styled.div`
+  text-align: center;
+`;
 
-  .av6 {
-    top: 8rem;
-    left: 12rem;
-  }
+export const Background = styled.img`
+  margin-top: 0.2rem;
+  opacity: 0.4;  
+`;
 
-  .description-box {
-    font-family: 'Grandstander', cursive;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 70%;
-    height: 25rem;
-    position: absolute;
-    right: 15%;
-    top: 20vh;
-    margin: 0;
-  }
+export const FeatureIcon = styled.img`
+  width: 6rem;
+  margin: 0 1rem;
+`;
 
-  .box {
-    font-family: 'Grandstander', cursive;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    color: white;
-    font-size: 1.6rem;
-    width: 34%;
-    height: 20rem;
-    margin: 0;
-    background-color: #9dc854;
-    opacity: 0.92;
-    padding: 1.6rem;
-    border-radius: 1.2rem;
+export const FeaturesWrapper = styled.div`
+  margin: 3rem auto;
+  margin-bottom: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  @media (min-width: 680px) {
+    flex-direction: row;
+    margin-top: 7rem;
   }
+`;
 
-  .and {
-    font-family: 'Grandstander', cursive;
-    font-size: 3rem;
-    background-color: #9dc854;
-    color: white;
-    border-radius: 100%;
-    width: 7.5rem;
-    padding: 1.5rem;
-    opacity: 0.92;
+export const AndBox = styled.div`
+  font-family: 'Grandstander', cursive;
+  font-size: 3rem;
+  background-color: #9dc854;
+  color: white;
+  border-radius: 100%;
+  width: 7.5rem;
+  padding: 1.5rem;
+  opacity: 0.92;
+  @media (max-width: 1080px) {
+    display: none;
   }
+`;
 
-  .box-background {
-    width: 70%;
-    height: 25rem;
-    position: absolute;
-    right: 15%;
-    top: 24vh;
-    margin: 0;
-    background-color: #9dc854;
-    opacity: 0.5;
-    padding: 1.6rem;
-    border-radius: 1.2rem;
-  }
-
-  .icon {
+export const FeatureBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 300px;
+  width: 85%;
+  max-width: 400px;
+  margin-bottom: 3rem;
+  font-family: 'Grandstander', cursive;
+  color: white;
+  font-size: 1.6rem;
+  background-color: #9dc854;
+  opacity: 0.92;
+  padding: 1.6rem;
+  border-radius: 1.2rem;
+  @media (min-width: 680px) {
     width: 40%;
   }
 `;

@@ -10,11 +10,11 @@ export const NavWrapper = styled.nav`
 
 export const LogoWrapper = styled.div`
   display: flex;
-  font-size: 2rem;
+  font-size: 1.8rem;
 `;
 
 export const MainLogo = styled.img`
-  width: 3rem;
+  width: 2rem;
   margin-right: 1rem;  
 `;
 
@@ -42,6 +42,6 @@ export const Balance = styled.div`
   background-color: white;
   color: #1d3557;
   border-radius: 1rem;
-  height: 36px;
+  height: 2.4rem;
   padding-left: 1.2rem;
 `;

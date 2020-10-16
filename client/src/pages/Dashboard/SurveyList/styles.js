@@ -4,7 +4,13 @@ export const SurveysWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: 2vw;
+  margin: 1.5rem 0.8rem 5rem 0.8rem;
+  @media (min-width: 680px) {
+    margin: 1.5rem 1rem 2.5rem 1rem;
+  }
+  @media (min-width: 1000px) {
+    margin: 1.2rem 1rem 2rem 1rem;
+  }  
   padding-bottom: 2vw;  
 `;
 
